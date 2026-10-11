@@ -1,0 +1,23 @@
+title = "JengaSec gitleaks config"
+
+[extend]
+useDefault = true
+
+# Catches literal passwords in config, scripts and docs.
+[[rules]]
+id = "jengasec-literal-password"
+description = "Literal password assignment"
+regex = '''(?i)\b(password|passwd|pwd)\b["']?\s*[:=]\s*["']?[^\s"'$\{<>]{4,}'''
+keywords = ["password", "passwd", "pwd"]
+
+[allowlist]
+description = "Placeholders and examples only"
+paths = [
+  '''.*\.example$''',
+  '''.*\.md\.example$''',
+]
+regexes = [
+  '''(?i)changeme''',
+  '''(?i)<[a-z_ -]*password[a-z_ -]*>''',
+  '''\{\{\s*vault_[a-z0-9_]+\s*\}\}''',
+]

@@ -1,0 +1,18 @@
+# Setup (once per clone):
+#   pip install pre-commit && pre-commit install
+# Bump `rev` to the current gitleaks release when you set this up.
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+        args: ["--config", ".gitleaks.toml"]
+
+  - repo: local
+    hooks:
+      - id: vault-files-encrypted
+        name: Ansible vault files must be encrypted
+        entry: scripts/check-vault-encrypted.sh
+        language: script
+        files: '(^|/)vault[^/]*\.ya?ml$'
+        exclude: '\.example$'

@@ -1,0 +1,7 @@
+# Template only. The real file is vault.yml, created with:
+#   mkdir -p ~/.jengasec && chmod 700 ~/.jengasec
+#   (create the password files ~/.jengasec/vault-platform and vault-ci, mode 600)
+#   ansible-vault create --encrypt-vault-id platform ansible/group_vars/all/vault.yml
+# Then add keys like these, with real values:
+vault_cloudflare_api_token: "CHANGEME"
+vault_gitea_registry_token: "CHANGEME"

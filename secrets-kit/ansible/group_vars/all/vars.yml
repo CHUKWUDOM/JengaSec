@@ -1,0 +1,3 @@
+# Non-secret config. Secrets are referenced from the encrypted vault.yml.
+cloudflare_api_token: "{{ vault_cloudflare_api_token }}"
+gitea_registry_token: "{{ vault_gitea_registry_token }}"

@@ -1,0 +1,16 @@
+# Append to the repo .gitignore
+.vault-pass*
+*.vault-pass
+vault-pass*
+*.pem
+*.key
+id_*
+!id_*.pub
+.env
+.env.*
+!.env.example
+*.kubeconfig
+kubeconfig*
+wg*.conf
+*.tfstate
+*.tfstate.*
